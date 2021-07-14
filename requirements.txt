@@ -1,0 +1,6 @@
+requests
+sqlalchemy
+flask
+flask_restful
+SQLAlchemy-serializer
+sqlalchemy
