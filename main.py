@@ -11,7 +11,7 @@ def main():
     db_session.global_init("db/db_products.db")
     app.register_blueprint(api.blueprint)
     port = int(os.environ.get('PORT', port_num))
-    app.run(port=port)
+    app.run('0.0.0.0', port)
 
 
 if __name__ == '__main__':
