@@ -1,23 +1,10 @@
-import requests
+import urllib.request
 
-api_root = 'http://localhost:5050/api/'
+fp = urllib.request.urlopen("http://0.0.0.0:5050/")
 
-# добавляем товар
-print(requests.post(api_root + 'product',
-                    json={'scu': 11131115, 'name': 'стол', 'type': 'мебель', 'cost': '550'}).json())
+encodedContent = fp.read()
+decodedContent = encodedContent.decode("utf8")
 
-# получаем информацию о нём по id, полученному в прошлом тесте
-print(requests.get(api_root + 'product/20').json())  # product/{id}
+print(decodedContent)
 
-# меняем scu и имя
-print(requests.put(api_root + 'product/20',
-                   json={'scu': 12345600, 'name': 'шкаф'}).json())
-
-# получаем информацию о нём по новому scu
-print(requests.get(api_root + 'product/12345600').json())
-
-# получаем список товаров с таким же type
-print(requests.get(api_root + 'products', json={'type': 'мебель'}).json())
-
-# удаляем товар по id
-print(requests.delete(api_root + 'product/20').json())
+fp.close()

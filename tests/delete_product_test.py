@@ -8,7 +8,7 @@ print(requests.delete(api_root + 'product/3').json())
 print(requests.delete(api_root + 'product/11111111').json())
 
 # переданы ненужные данные
-print(requests.delete(api_root + 'product/8', json={'scu': 11111111, 'name': 'кружка', 'cost': '50'}).json())
+print(requests.delete(api_root + 'product/4', json={'scu': 63485912, 'name': 'кружка', 'cost': '50'}).json())
 
 # по некорректному id
 print(requests.delete(api_root + 'product/9').json())
